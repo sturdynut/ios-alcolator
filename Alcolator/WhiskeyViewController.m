@@ -14,7 +14,7 @@
 
 @implementation WhiskeyViewController
 
-- (void)buttonPressed:(UIButton *)sender;
+- (void)showAlcoholComparison;
 {
     [self.beerPercentTextField resignFirstResponder];
     

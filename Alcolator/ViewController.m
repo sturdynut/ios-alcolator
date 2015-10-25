@@ -35,10 +35,18 @@
 
 - (IBAction)sliderValueDidChange:(UISlider *)sender {
     NSLog(@"Slider value changed to %f", sender.value);
+    
+    [self showAlcoholComparison];
+    
+    // Question:  What does this do?
     [self.beerPercentTextField resignFirstResponder];
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
+    [self showAlcoholComparison];
+}
+
+- (void)showAlcoholComparison {
     [self.beerPercentTextField resignFirstResponder];
     
     // first, calculate how much alcohol is in all those beers...
@@ -59,7 +67,7 @@
     NSString *wineText = numberOfBeers == 1 ? NSLocalizedString(@"glass", "@singular glass") : NSLocalizedString(@"glasses", "@plural of glass");
     
     NSString *resultText = [NSString stringWithFormat:NSLocalizedString(@"%d %@ (with %.2f%% alcohol) contains as much alcohol as %.1f %@ of wine.", nil), numberOfBeers, beerText,  [self.beerPercentTextField.text floatValue], numberOfWineGlassesForEquivalentAlcoholAmount, wineText];
-
+    
     self.resultLabel.text = resultText;
 }
 
