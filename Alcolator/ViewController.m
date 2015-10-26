@@ -69,6 +69,9 @@
     NSString *resultText = [NSString stringWithFormat:NSLocalizedString(@"%d %@ (with %.2f%% alcohol) contains as much alcohol as %.1f %@ of wine.", nil), numberOfBeers, beerText,  [self.beerPercentTextField.text floatValue], numberOfWineGlassesForEquivalentAlcoholAmount, wineText];
     
     self.resultLabel.text = resultText;
+    
+    int numberGlasses = numberOfWineGlassesForEquivalentAlcoholAmount;
+    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d", numberGlasses]];
 }
 
 - (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
